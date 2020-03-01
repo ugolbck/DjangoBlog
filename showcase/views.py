@@ -14,6 +14,6 @@ def detail(request, article_id):
     article = get_object_or_404(Article, pk=article_id)
     return render(request, 'showcase/detail.html', {'article': article.body})
 
-def cvDisplay(request, cv_id):
-    cv = get_object_or_404(CV, pk=cv_id)
+def cvDisplay(request):
+    cv = get_object_or_404(CV, pk=1)
     return render(request, 'showcase/cv.html', {'cv': cv.curriculum})
