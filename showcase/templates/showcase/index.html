@@ -1,18 +1,5 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>THE PAGE</title>
-    </head>
-    <body>
-    {% if latest_articles %}
-        <ul>
-            {% for article in latest_articles %}
-                <li><a href="/{{ article.id }}/">{{ article.title }}</a></li>
-            {% endfor %}
-        </ul>
-    {% else %}
-        <p>No articles are available.</p>
-    {% endif %}
-    </body>
-</html>
+{% extends "base.html" %}
+
+{% block page_content %}
+<p>prout</p>
+{% endblock %}

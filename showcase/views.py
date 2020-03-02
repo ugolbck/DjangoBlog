@@ -5,10 +5,7 @@ from .models import Article, CV
 
 def index(request):
     latest_articles = Article.objects.order_by('-date')[:5]
-    context = {
-        'latest_articles': latest_articles,
-    }
-    return render(request, 'showcase/index.html', context)
+    return render(request, 'showcase/index.html', {'latest_articles': latest_articles})
 
 def detail(request, article_id):
     article = get_object_or_404(Article, pk=article_id)

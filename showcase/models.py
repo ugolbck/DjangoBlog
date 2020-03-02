@@ -11,8 +11,9 @@ class Article(models.Model):
         return self.title
 
 class CV(models.Model):
-    description = models.CharField(max_length=30)
+    description = models.CharField(max_length=40)
     curriculum = models.ImageField()
+    lang = models.CharField(max_length=15)
 
     def __str__(self):
         return self.description
