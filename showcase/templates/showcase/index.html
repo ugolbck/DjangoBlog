@@ -2,6 +2,12 @@
 
 {% block page_content %}
 
+{% block above_latest_projects %}
+
+{% include "./about.html" %}
+
+{% endblock above_latest_projects %}
+
 {% if latest_articles %}
     <ul>
         <div class="card-deck">
@@ -13,7 +19,7 @@
                     <p class="card-text">{{ article.body|slice:":40" }}... </p>
                 </div>
                 <div class="card-footer">
-                    <small class="text-muted">Last updated 3 mins ago</small>
+                    <small class="text-muted">Last updated {{ article.date|timesince }} ago</small>
                 </div>
               </div>
             {% endfor %}
