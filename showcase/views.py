@@ -4,7 +4,7 @@ from .models import Article, CV
 
 
 def index(request):
-    latest_articles = Article.objects.order_by('-date')[:5]
+    latest_articles = Article.objects.order_by('-date')[:3]
     return render(request, 'showcase/index.html', {'latest_articles': latest_articles})
 
 def detail(request, article_id):
