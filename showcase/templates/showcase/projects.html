@@ -3,23 +3,29 @@
 {% block page_content %}
 
 {% if all_articles %}
-    <ul>
-        <div class="card-deck">
-            {% for article in all_articles %}
-                <div class="card">
-                    <img class="card-img-top" href='/CV/' src="..." alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ article.title }} </h5>
-                        <p class="card-text">{{ article.body|slice:":40" }}... </p>
-                        <a href="{% url 'project_detail' article.id %}" class="card-link">Card link</a>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-muted">Last updated {{ article.date|timesince }} ago</small>
+    <div class="container">
+        {% for article in all_articles %}  
+            {% if forloop.counter0|divisibleby:"3" or forloop.first %} <div class="row"> {% endif %}  
+                <div class="col mb-4">
+                    <div class="card h-100">
+                        <div class="card-header">
+                            <a href="#" class="badge badge-primary">Python</a>
+                        </div>
+                        <img class="card-img-top" src="https://lh3.googleusercontent.com/proxy/n35hhz7ZGtG2JSFtHgkxU0LHLT-OS5KQ9iSFdHKqR2eY3YcrRGKlbM6d7HYOr2Rw09uDZhzMoV-Kl8aBjvMWajIpaKYd2_iPSV8NdWFVBVWRKgzddQ" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ article.title }} </h5>
+                            <p class="card-text">{{ article.body|slice:":40" }}... </p>
+                            <a href="{% url 'project_detail' article.id %}" class="card-link">Card link</a>
+                        </div>
+                        <div class="card-footer">
+                            <small class="text-muted">Last updated {{ article.date|timesince }} ago</small>
+                        </div>
                     </div>
                 </div>
-            {% endfor %}
-        </div>
-    </ul>
+            {% if forloop.counter|divisibleby:"3" or forloop.last %}</div>{%  endif %}
+        {% endfor %}
+    </div>
+    
 {% else %}
     <p>No articles are available.</p>
 {% endif %}

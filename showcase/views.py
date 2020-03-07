@@ -10,10 +10,6 @@ def index(request):
 def project_list(request):
     all_articles = Article.objects.all()
     return render(request, 'showcase/projects.html', {'all_articles': all_articles})
-# TODO
-# Add projects.html and display all articles
-# Split project_render into single/all
-# Map urls in base.html to the right names from urls.py
 
 def project_render(request, article_id):
     article = get_object_or_404(Article, pk=article_id)

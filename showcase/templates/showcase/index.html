@@ -5,22 +5,23 @@
 {% include "./about.html" %}
 
 {% if latest_articles %}
-    <ul>
+    <div class='container'>
         <div class="card-deck">
             {% for article in latest_articles %}
                 <div class="card">
-                    <img class="card-img-top" src="..." alt="Card image cap">
+                    <img class="card-img-top" src="https://lh3.googleusercontent.com/proxy/n35hhz7ZGtG2JSFtHgkxU0LHLT-OS5KQ9iSFdHKqR2eY3YcrRGKlbM6d7HYOr2Rw09uDZhzMoV-Kl8aBjvMWajIpaKYd2_iPSV8NdWFVBVWRKgzddQ" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">{{ article.title }} </h5>
                         <p class="card-text">{{ article.body|slice:":40" }}... </p>
                     </div>
                     <div class="card-footer">
                         <small class="text-muted">Last updated {{ article.date|timesince }} ago</small>
+                        <a href="#" class="badge badge-primary">Python</a>
                     </div>
                 </div>
             {% endfor %}
         </div>
-    </ul>
+    </div>
 {% else %}
     <p>No articles are available.</p>
 {% endif %}
