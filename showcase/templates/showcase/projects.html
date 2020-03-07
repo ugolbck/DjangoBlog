@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block page_content %}
+
+{% if all_articles %}
+    <ul>
+        <div class="card-deck">
+            {% for article in all_articles %}
+                <div class="card">
+                    <img class="card-img-top" href='/CV/' src="..." alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ article.title }} </h5>
+                        <p class="card-text">{{ article.body|slice:":40" }}... </p>
+                        <a href="{% url 'project_detail' article.id %}" class="card-link">Card link</a>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Last updated {{ article.date|timesince }} ago</small>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </ul>
+{% else %}
+    <p>No articles are available.</p>
+{% endif %}
+
+{% endblock %}
